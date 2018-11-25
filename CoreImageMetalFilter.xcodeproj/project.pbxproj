@@ -13,6 +13,10 @@
 		3CD803F821AB4F4100FB4FD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CD803F721AB4F4100FB4FD0 /* Assets.xcassets */; };
 		3CD803FB21AB4F4100FB4FD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CD803F921AB4F4100FB4FD0 /* LaunchScreen.storyboard */; };
 		3CD803FE21AB4F4100FB4FD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD803FD21AB4F4100FB4FD0 /* main.m */; };
+		3CD8040521AB616800FB4FD0 /* CoreImageMetalFilter.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8040421AB616800FB4FD0 /* CoreImageMetalFilter.metal */; };
+		3CD8040821AB646100FB4FD0 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CD8040721AB646100FB4FD0 /* MetalKit.framework */; };
+		3CD8040B21AB64D600FB4FD0 /* MetalFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8040A21AB64D600FB4FD0 /* MetalFilter.m */; };
+		3CD8040E21AB66DF00FB4FD0 /* MetalKernel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8040C21AB66DE00FB4FD0 /* MetalKernel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,12 @@
 		3CD803FA21AB4F4100FB4FD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CD803FC21AB4F4100FB4FD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CD803FD21AB4F4100FB4FD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3CD8040421AB616800FB4FD0 /* CoreImageMetalFilter.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = CoreImageMetalFilter.metal; sourceTree = "<group>"; };
+		3CD8040721AB646100FB4FD0 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		3CD8040921AB64D600FB4FD0 /* MetalFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalFilter.h; sourceTree = "<group>"; };
+		3CD8040A21AB64D600FB4FD0 /* MetalFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetalFilter.m; sourceTree = "<group>"; };
+		3CD8040C21AB66DE00FB4FD0 /* MetalKernel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalKernel.m; sourceTree = "<group>"; };
+		3CD8040D21AB66DF00FB4FD0 /* MetalKernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalKernel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD8040821AB646100FB4FD0 /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +55,7 @@
 			children = (
 				3CD803ED21AB4F3B00FB4FD0 /* CoreImageMetalFilter */,
 				3CD803EC21AB4F3B00FB4FD0 /* Products */,
+				3CD8040621AB646100FB4FD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +74,11 @@
 				3CD803EF21AB4F3B00FB4FD0 /* AppDelegate.m */,
 				3CD803F121AB4F3B00FB4FD0 /* ViewController.h */,
 				3CD803F221AB4F3B00FB4FD0 /* ViewController.m */,
+				3CD8040921AB64D600FB4FD0 /* MetalFilter.h */,
+				3CD8040A21AB64D600FB4FD0 /* MetalFilter.m */,
+				3CD8040D21AB66DF00FB4FD0 /* MetalKernel.h */,
+				3CD8040C21AB66DE00FB4FD0 /* MetalKernel.m */,
+				3CD8040421AB616800FB4FD0 /* CoreImageMetalFilter.metal */,
 				3CD803F421AB4F3B00FB4FD0 /* Main.storyboard */,
 				3CD803F721AB4F4100FB4FD0 /* Assets.xcassets */,
 				3CD803F921AB4F4100FB4FD0 /* LaunchScreen.storyboard */,
@@ -69,6 +86,14 @@
 				3CD803FD21AB4F4100FB4FD0 /* main.m */,
 			);
 			path = CoreImageMetalFilter;
+			sourceTree = "<group>";
+		};
+		3CD8040621AB646100FB4FD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CD8040721AB646100FB4FD0 /* MetalKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD8040E21AB66DF00FB4FD0 /* MetalKernel.m in Sources */,
+				3CD8040521AB616800FB4FD0 /* CoreImageMetalFilter.metal in Sources */,
 				3CD803F321AB4F3B00FB4FD0 /* ViewController.m in Sources */,
 				3CD803FE21AB4F4100FB4FD0 /* main.m in Sources */,
+				3CD8040B21AB64D600FB4FD0 /* MetalFilter.m in Sources */,
 				3CD803F021AB4F3B00FB4FD0 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9F74CLHA49;
-				INFOPLIST_FILE = TrivialCoreImageFilter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreImageMetalFilter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,7 +333,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9F74CLHA49;
-				INFOPLIST_FILE = TrivialCoreImageFilter/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreImageMetalFilter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
