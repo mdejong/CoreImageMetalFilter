@@ -28,6 +28,12 @@
   // in the containing view with a 5% border on each side
 
   UIImage *inImage = self.ducklingImageView.image;
+  
+  {
+    CGRect imageViewSize = self.ducklingImageView.frame;
+    NSLog(@"imageView size %d x %d", (int) imageViewSize.size.width, (int) imageViewSize.size.height);
+  }
+  
   //CIContext *ciContext = [CIContext contextWithOptions:nil];
   
   // Convert from color input image to old school BW
@@ -50,7 +56,30 @@
     
     CIImage *inCIImage = [[CIImage alloc] initWithImage:inImage];
     
+    {
+      CGRect imageExtent = inCIImage.extent;
+      NSLog(@"inCIImage extent %d x %d", (int) imageExtent.size.width, (int) imageExtent.size.height);
+    }
+
     [filter setValue:inCIImage forKeyPath:kCIInputImageKey];
+    
+    // Calculate scale size so that large input image is scaled down to a size that
+    // is the same size as the image view frame
+    
+    {
+      CGFloat scale = [UIScreen mainScreen].scale;
+      CGSize imageViewSize = self.ducklingImageView.frame.size;
+      imageViewSize = CGSizeMake(imageViewSize.width * scale, imageViewSize.height * scale);
+      
+      {
+        NSLog(@"expected resize to %d x %d", (int) imageViewSize.width, (int) imageViewSize.height);
+      }
+      
+      CGFloat ratio = imageViewSize.width / imageViewSize.height;
+      
+      [filter setValue:@(imageViewSize.width) forKeyPath:kCIInputWidthKey];
+      [filter setValue:@(ratio) forKeyPath:kCIInputAspectRatioKey];
+    }
     
     CIImage *outCIImage = filter.outputImage;
     UIImage *uiImgFromCIImage = [UIImage imageWithCIImage:outCIImage];
